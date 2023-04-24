@@ -8,14 +8,15 @@ class LoginAzetPage(BasePage):
     def __init__(self, page):
         super().__init__(page)
         page.wait_for_load_state("networkidle")
+        self.title = page.locator(".landing-page__title")
         self.user_name_input_field_locator = page.get_by_placeholder("Zadaj názov účtu")
         self.password_input_field_locator = page.get_by_placeholder("Zadaj svoje heslo")
         self.login_button_locator = page.get_by_role("button", name="Prihlásiť sa")
+        self.assert_correctly_loaded()
 
     def assert_correctly_loaded(self):
-        expect(self.user_name_input_field_locator).to_be_visible()
-        expect(self.password_input_field_locator).to_be_visible()
-        expect(self.login_button_locator).to_be_visible()
+        expect(self.title).to_be_visible()
+        expect(self.title).to_have_text("Prihlásenie")
 
     def fill_username(self, username):
         self.user_name_input_field_locator.click()

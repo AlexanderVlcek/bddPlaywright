@@ -1,8 +1,8 @@
 from pytest_bdd import scenario, given, when, then, parsers
 
+from pages.azetMailPages.left_box_azet_mail_page import LeftBoxAzetMailPage
 from pages.azetMailPages.new_azet_mail_page import NewAzetMailPage
 from tests.test_base import login_to_azet_email
-from pages.azetMailPages.left_box_azet_mail_page import LeftBoxAzetMailPage
 
 
 @scenario('../features/send_email_azet.feature', 'Send email')

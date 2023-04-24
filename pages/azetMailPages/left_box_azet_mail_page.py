@@ -15,6 +15,7 @@ class LeftBoxAzetMailPage(BasePage):
         self.unread = page.get_by_role("link", name="Neprečítané")
         self.sent = page.locator("#js_idfolderListItem_sent__")
         self.sent_count = self.sent.locator(".count")
+        self.assert_correctly_loaded()
 
     def assert_correctly_loaded(self):
         expect(self.new).to_be_visible()

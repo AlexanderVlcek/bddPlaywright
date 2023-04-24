@@ -7,17 +7,17 @@ class NewAzetMailPage(BasePage):
 
     def __init__(self, page):
         super().__init__(page)
+        self.title = self.page.locator("h1.h1 a")
         self.contacts = page.get_by_role("link", name="#", exact=True)
         self.receiver_input = page.locator("css=input#od")
         self.subject = page.get_by_label("Predmet")
         self.body = page.frame_locator("iframe[class=\"cke_wysiwyg_frame cke_reset\"]").locator("body")
         self.send_email_button = page.get_by_role("button", name="Odoslať")
+        self.assert_correctly_loaded()
 
     def assert_correctly_loaded(self):
-        expect(self.contacts).to_be_visible()
-        expect(self.receiver_input).to_be_visible()
-        expect(self.subject).to_be_visible()
-        expect(self.body).to_be_visible()
+        expect(self.title).to_be_visible()
+        expect(self.title).to_have_text("Nový Email")
 
     def select_alexander_vlcek_email(self):
         self.contacts.click()
