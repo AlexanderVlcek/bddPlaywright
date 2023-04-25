@@ -1,5 +1,6 @@
-pytest>=7.2.2
+pytest==7.3.1
 playwright>=1.32.1
 # needed also to run in terminal: playwright install - to get required native playwright browsers
-pytest-playwright>=0.3.2
+pytest-playwright==0.3.3
 pytest-bdd>=6.1.1
+pytest-reporter-html-dots>=0.10.0
