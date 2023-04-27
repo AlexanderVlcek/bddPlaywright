@@ -4,3 +4,4 @@ playwright>=1.32.1
 pytest-playwright==0.3.3
 pytest-bdd>=6.1.1
 pytest-reporter-html-dots>=0.10.0
+assertpy>=1.1
